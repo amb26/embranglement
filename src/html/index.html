@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../node_modules/infusion/src/lib/normalize/css/normalize.css" />
+        <link rel="stylesheet" href="../../node_modules/infusion/src/lib/jquery/ui/css/default-theme/jquery-ui.css"></script>
+        <link rel="stylesheet" type="text/css" href="../../node_modules/infusion/src/framework/core/css/fluid.css" />
+        <link rel="stylesheet" type="text/css" href="../../node_modules/infusion/src/framework/core/css/fluidDebugging.css" />
+        <link rel="stylesheet" type="text/css" href="../../node_modules/infusion/src/components/overviewPanel/css/OverviewPanel.css" />
+        <link rel="stylesheet" type="text/css" href="../../node_modules/infusion/src/components/inlineEdit/css/InlineEdit.css" />
+
+        <script src="../../node_modules/infusion/src/lib/jquery/core/js/jquery.js"></script>
+        <script src="../../node_modules/infusion/src/lib/jquery/ui/js/jquery-ui.js"></script>
+
+        <script src="../../node_modules/infusion/src/lib/fastXmlPull/js/fastXmlPull.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/jquery.keyboard-a11y.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/Fluid.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/FluidDebugging.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/FluidDocument.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/FluidRequests.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/FluidIoC.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/DataBinding.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/ModelTransformation.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/ModelTransformationTransforms.js"></script>
+        <script src="../../node_modules/infusion/src/framework/enhancement/js/ContextAwareness.js"></script>
+        <script src="../../node_modules/infusion/src/framework/enhancement/js/ProgressiveEnhancement.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/FluidView.js"></script>
+        <script src="../../node_modules/infusion/src/framework/core/js/ResourceLoader.js"></script>
+        <script src="../../node_modules/infusion/src/framework/renderer/js/fluidParser.js"></script>
+        <!-- Some of these definitions will be factored out into FluidViewDebuggingCore.js
+        <script src="../../node_modules/infusion/src/framework/core/js/FluidViewDebugging.js"></script>
+        -->
+        <script src="../../node_modules/infusion/src/components/inlineEdit/js/InlineEdit.js"></script>
+
+        <script src="../../node_modules/infusion/src/components/tooltip/js/Tooltip.js"></script>
+
+        <script src="../js/viewComponentSupport.js"></script>
+        <script src="../js/agents.js"></script>
+        <script src="../js/colour.js"></script>
+        <script src="../js/shapes.js"></script>
+        <script src="../js/timer.js"></script>
+        <script src="../js/embranglement.js"></script>
+        <script src="../js/canvas.js"></script>
+        
+        <!-- Below here: definitions for the authoring environment -->
+
+        <script src="../../node_modules/fluid-authoring/src/shared/js/AuthorUtils.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/shared/js/ComponentGraphUtilities.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/client/js/PlainAriaLabels.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/client/js/KeyboardSupport.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/client/js/DecoratorViewComponent.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/client/js/FluidViewDebuggingCore.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/client/js/ViewComponentSupport.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/client/js/DynamicComponentIndexer.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/client/js/StructureView.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/client/js/ComponentGraph.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/client/js/ComponentGraphArrows.js"></script>
+        <script src="../../node_modules/fluid-authoring/src/client/js/ComponentGraphLocal.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="../../node_modules/fluid-authoring/src/client/css/ComponentGraph.css" />
+
+        <title>Embranglement Demo</title>
+    </head>
+
+    <body>
+        <div class="fl-embranglement-container">
+
+            <div id="flc-embranglement">
+                <canvas class="flc-embranglement-canvas" width=800 height=800></canvas>
+            </div>
+        </div>
+        <script src="../js/arena.js"></script>
+        <script>                   
+            // fluid.author.componentGraphPanel.popup.local("body");
+        </script>
+    </body>
+</html>

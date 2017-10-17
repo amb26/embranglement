@@ -1,0 +1,25 @@
+{
+    "name": "embranglement",
+    "description": "Sample embranglement (entanglement, co-occurence) engine using Fluid Infusion",
+    "version": "0.0.1",
+    "author": "Fluid Project",
+    "homepage": "http://www.fluidproject.org/",
+    "dependencies": {
+        "infusion": "3.0.0-dev.20171006T195039Z.a128358",
+        "fluid-authoring": "amb26/fluid-authoring#FLUID-4884"
+    },
+    "devDependencies": {
+        "eslint-config-fluid": "1.1.0",
+        "fluid-grunt-eslint": "18.1.2",
+        "grunt-jsonlint": "1.1.0",        
+        "grunt": "1.0.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/amb26/embranglement.git"
+    },
+    "engines": {
+        "node": ">=4.0.0"
+    },
+    "license" : "BSD-3-Clause"
+}
