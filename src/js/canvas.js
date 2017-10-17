@@ -177,7 +177,7 @@ fluid.defaults("fluid.embranglement.drawBuilder", {
 });
 
 fluid.defaults("fluid.embranglement.indexedDynamicComponent", {
-    mergePolicy: { // Obviously this will be replaced by a FLUID-XXXX scheme
+    mergePolicy: { // Obviously this will be replaced by a FLUID-6214 scheme, at the very least
         dynamicComponentIndex: "noexpand"
     },
     listeners: {

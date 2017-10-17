@@ -206,7 +206,7 @@ fluid.embranglement.elementsToRecord = function (embranglementRecord, embranglem
     return $.extend(true, embranglementRecord, {
         options: {
             embranglementElements: embranglementElements
-// This cannot function because of FLUID-XXXX
+// This cannot function because of https://issues.fluidproject.org/browse/FLUID-6213
 //            components: components
         }
     });
