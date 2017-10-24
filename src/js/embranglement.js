@@ -11,11 +11,11 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
 fluid.defaults("fluid.embranglement", {
     gradeNames: "fluid.component",
     listeners: {
-        "onCreate.mountReagents": {
+/*        "onCreate.mountReagents": {
             funcName: "fluid.embranglement.mountReagents",
             args: "{that}",
             priority: "first"
-        },
+        },*/
         "onCreate.updateIndex": "fluid.embranglement.updateEmbranglementIndex({that}, {embranglementArena}, true)",
         "onDestroy.updateIndex": "fluid.embranglement.updateEmbranglementIndex({that}, {embranglementArena}, false)"
     },
@@ -107,7 +107,7 @@ fluid.defaults("fluid.embranglement.embranglementArena", {
         embranglements: {
             createOnEvent: "createEmbranglement",
             type: "{arguments}.0.type",
-            options: "{arguments}.0.options"
+            options: "@expand:fluid.embranglement.recordToOptions({arguments}.0.options)"
         }
     },
     modelListeners: {
@@ -117,7 +117,7 @@ fluid.defaults("fluid.embranglement.embranglementArena", {
 
 fluid.embranglement.updateEmbranglement = function (that, change) {
     if (change.value) {
-        var totalOptions = fluid.freezeRecursive($.extend(true, {}, change.value.record, {
+        var totalOptions = fluid.freezeRecursive($.extend(true, {}, change.value, {
             options: {
                 embranglementKey: change.path
             }
@@ -128,6 +128,22 @@ fluid.embranglement.updateEmbranglement = function (that, change) {
         that[that.keyToMemberName[change.path]].destroy();
         fluid.log("Embranglement DESTROYED with key ", change.path);
     }
+};
+
+fluid.defaults("fluid.embranglement.signalDisplay", {
+    gradeNames: "fluid.newViewComponent",
+    modelListeners: {
+        "embranglementDisplay": {
+            path: "{fluid.embranglement.embranglementArena}.model",
+            funcName: "fluid.embranglement.dumpJSON",
+            args: ["{that}.container", "{change}.value"]
+        }
+    }
+});
+
+fluid.embranglement.dumpJSON = function (element, value) {
+    var JSONvalue = JSON.stringify(value, null, 2);
+    element.val(JSONvalue);
 };
 
 fluid.defaults("fluid.embranglement.embrangler", {
@@ -199,15 +215,26 @@ fluid.embranglement.idToComponent = function (id) {
     return fluid.globalInstantiator.idToShadow[id].that;
 };
 
+// Convert a record within the embranglement signal to a set of component options which will mount the referenced
+// entangled agents as subcomponents
+fluid.embranglement.recordToOptions = function (embranglementRecord) {
+    var components = fluid.transform(embranglementRecord.embranglementElements, function (id) {
+        return {
+            expander: {
+                func: "fluid.embranglement.idToComponent",
+                args: [id]
+            }
+        };
+    });
+    return $.extend({}, embranglementRecord, {
+        components: components
+    });
+};
+
 fluid.embranglement.elementsToRecord = function (embranglementRecord, embranglementElements) {
-//    var components = fluid.transform(embranglementElements, function (id) {
-//        return "@expand:fluid.embranglement.idToComponent(" + id + ")";
-//    });
     return $.extend(true, embranglementRecord, {
         options: {
             embranglementElements: embranglementElements
-// This cannot function because of https://issues.fluidproject.org/browse/FLUID-6213
-//            components: components
         }
     });
 };
@@ -222,9 +249,7 @@ fluid.embranglement.outputEmbranglement = function (embranglementRecord, trans, 
     fluid.each(targetIndex, function (indexEl, i) {
         embranglementElements[indexEl.name] = targets[i].id;
     });
-    trans.change(embranglementKey, {
-        record: fluid.embranglement.elementsToRecord(embranglementRecord, embranglementElements)
-    });
+    trans.change(embranglementKey, fluid.embranglement.elementsToRecord(embranglementRecord, embranglementElements));
 };
 
 fluid.embranglement.pairwiseNimbusEmbrangler.updateEmbranglements = function (that) {
