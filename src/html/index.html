@@ -35,6 +35,8 @@
 
         <script src="../../node_modules/infusion/src/components/tooltip/js/Tooltip.js"></script>
 
+        <link rel="stylesheet" type="text/css" href="../css/embranglement.css"/>
+
         <script src="../js/viewComponentSupport.js"></script>
         <script src="../js/agents.js"></script>
         <script src="../js/colour.js"></script>
@@ -66,9 +68,13 @@
     <body>
         <div class="fl-embranglement-container">
 
-            <div id="flc-embranglement">
+            <div id="flc-embranglement" class="horizontal-div">
                 <canvas class="flc-embranglement-canvas" width=800 height=800></canvas>
             </div>
+            <div class="horizontal-div">
+                <p>Embranglement signal:</p>
+                <textarea class="fld-signal-area" spellcheck="false" readonly="true"></textarea>
+            <div>
         </div>
         <script src="../js/arena.js"></script>
         <script>                   

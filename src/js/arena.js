@@ -19,6 +19,7 @@ fluid.defaults("demo.embrangler", {
         green: "fluid.embranglement.agentTypes.green",
         blue: "fluid.embranglement.agentTypes.blue"
     },
+    // Any material in here forms the initial construction record of any embranglement
     embranglementRecord: {
         type: "fluid.embranglement.drawableEmbranglement"
     }
@@ -33,6 +34,12 @@ fluid.construct("demo", {
     }
 });
 
+fluid.construct("demo.canvas.signalDisplay", {
+    type: "fluid.embranglement.signalDisplay",
+    container: ".fld-signal-area"
+});
+
+// The particular agents in the canvas that might be subject to embranglement
 
 fluid.construct("demo.canvas.redCircle", {
     type: "fluid.embranglement.nimbusCircle",

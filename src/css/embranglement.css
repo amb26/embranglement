@@ -1,0 +1,10 @@
+.horizontal-div {
+    display: inline-block; 
+    vertical-align: top;
+}
+
+.fld-signal-area {
+    width: 600px;
+    height: 400px;
+    font: 14px sans-serif;
+}
